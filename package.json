@@ -1,0 +1,23 @@
+{
+  "name": "node-review",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1intro.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gilbert-kiana/Node-review-projects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gilbert-kiana/Node-review-projects/issues"
+  },
+  "homepage": "https://github.com/gilbert-kiana/Node-review-projects#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}

@@ -1,9 +1,8 @@
-const amount = 12;
+const http = require("http");
 
-if (amount < 10) {
-  console.log("small number");
-} else {
-  console.log("big number");
-}
+const server = http.createServer((req, res) => {
+  res.write("This is a response from https");
+  res.end();
+});
 
-console.log("first app");
+server.listen(5000);
