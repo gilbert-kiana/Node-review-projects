@@ -1,22 +1,24 @@
 const express = require("express");
-
 const app = express();
-
-const { products } = require("./data");
-
+const logger = require("./logger");
+const authorize = require("./authorize");
+//  req => middleware => res
+app.use([logger, authorize]);
+// api/home/about/products
 app.get("/", (req, res) => {
-  res.send("<h1>Homepage</h1><a href ='/api/products'>products</a>");
+  res.send("Home");
 });
-
+app.get("/about", (req, res) => {
+  res.send("About");
+});
 app.get("/api/products", (req, res) => {
-  console.log(req);
-  const newProduct = products.map((product) => {
-    const { id, name, image } = product;
-    return { id, name, image };
-  });
-  res.json(newProduct);
+  res.send("Products");
+});
+app.get("/api/items", (req, res) => {
+  console.log(req.user);
+  res.send("Items");
 });
 
 app.listen(5000, () => {
-  console.log("server is listening on port5000");
+  console.log("Server is listening on port 5000....");
 });
