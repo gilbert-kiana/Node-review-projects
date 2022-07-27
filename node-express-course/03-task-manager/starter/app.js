@@ -3,14 +3,16 @@ const app = express();
 const tasks = require("./routes/tasks");
 const connectDb = require("./db/connect");
 require("dotenv").config();
+const notFound = require("./middlewares/not-found");
 
+//middleware
+app.use(express.static("./public"));
 app.use(express.json());
 
-app.get("/hello", (req, res) => {
-  res.send("Hello there");
-});
-
+//routes
 app.use("/api/v1/tasks", tasks);
+
+app.use(notFound);
 
 const port = 3000;
 
