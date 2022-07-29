@@ -33,7 +33,7 @@ const updateTask = asyncWrapper(async (req, res) => {
   });
 
   if (!task) {
-    return res.status(404).json({ msg: `No Task with id:${taskID}` });
+    return next(createCustomError(`No Task with id:${taskID}`, 404));
   }
 
   res.status(200).json({ task });
@@ -44,7 +44,7 @@ const deleteTask = asyncWrapper(async (req, res) => {
   const task = await Task.findOneAndDelete({ _id: taskID });
 
   if (!task) {
-    return res.status(404).json({ msg: `No Task with id:${taskID}` });
+    return next(createCustomError(`No Task with id:${taskID}`, 404));
   }
   res.status(200).json({ task });
 });
